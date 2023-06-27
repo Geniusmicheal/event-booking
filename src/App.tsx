@@ -4,8 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { floatedLabel, onSubmitBooking } from './Service';
 
 
-
-function App() {
+const App = () => {
    const formRef= useRef<any>(null), 
 	[loader, setLoader] = useState(false),
 	[randomUUID, setRandomUUID] = useState('');
