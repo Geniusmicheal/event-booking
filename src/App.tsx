@@ -28,7 +28,7 @@ function App() {
 
                <div className="col-md-6 col-md-offset-1">
 						<div className="booking-form">
-							<form ref={formRef} onSubmit={onSubmitBooking.bind(this,  {setLoader, setRandomUUID })}>
+							<form ref={formRef} onSubmit={onSubmitBooking.bind(this,{setLoader, setRandomUUID })}>
 								<div className="row">
 									<div className="col-md-12">
 										<div className="form-group">

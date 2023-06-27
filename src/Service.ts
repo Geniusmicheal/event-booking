@@ -1,5 +1,3 @@
-import { SyntheticEvent } from "react";
-
 export const floatedLabel = (formRef:any) => {
    const formData =  formRef?.current,
    formControl = formData.querySelectorAll('.form-control');
@@ -11,7 +9,7 @@ export const floatedLabel = (formRef:any) => {
    });
 }
 
-export const onSubmitBooking = ({setLoader, setRandomUUID}:any , event:SyntheticEvent)=> {
+export const onSubmitBooking = ({setLoader, setRandomUUID}:any , event:any)=> {
    event.preventDefault();
    setLoader(true);
    let isValid = true;
