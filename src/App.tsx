@@ -21,7 +21,7 @@ function App() {
 				<div className="row">
 					<div className="col-md-5">
 						<div className="booking-cta">
-							<h1>Reserve a seat </h1>
+							<h1>Book for an event</h1>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p>
 						</div>
 					</div>

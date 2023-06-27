@@ -37,12 +37,12 @@ export const onSubmitBooking = ({setLoader, setRandomUUID}:any , event:Synthetic
       printWin:any = window.open('','','width=340,height=260');
       printWin.document.open();
       printWin.document.write(windowContent);
+      targetedEvent.reset();
       printWin.addEventListener("load",()=> {
          printWin.document.close();
          printWin.focus();
          printWin.print();
          printWin.close();
-         targetedEvent.reset();
          setLoader(false);
       }, { once: true })
 
