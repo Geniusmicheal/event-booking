@@ -16,8 +16,9 @@ export const onSubmitBooking = ({setLoader, setRandomUUID}:any , event:Synthetic
    setLoader(true);
    let isValid = true;
    const formData:any= {}, 
+   targetedEvent = event.target as HTMLFormElement,
    randomUUID = self.crypto.randomUUID(),
-   formControl = (event.target as HTMLFormElement).querySelectorAll('.form-control');
+   formControl = targetedEvent.querySelectorAll('.form-control');
    
    for (let i = 0, leng = formControl.length; i < leng; i++) {
       const formValue:any  = (formControl[i] as HTMLFormElement)
@@ -34,16 +35,17 @@ export const onSubmitBooking = ({setLoader, setRandomUUID}:any , event:Synthetic
       windowContent =`<!DOCTYPE html><html><head><title>Print canvas</title></head><body>
       <img src="${dataUrl}"><br/> <h2>${formData['fullname']}</h2></body></html>`,
       printWin:any = window.open('','','width=340,height=260');
-
       printWin.document.open();
       printWin.document.write(windowContent);
-      printWin.document.close();
-      printWin.focus();
-      printWin.print();
-      printWin.close();
-      (event.target as HTMLFormElement).reset();
-   }
+      printWin.addEventListener("load",()=> {
+         printWin.document.close();
+         printWin.focus();
+         printWin.print();
+         printWin.close();
+         targetedEvent.reset();
+         setLoader(false);
+      }, { once: true })
 
-
-   setLoader(false);
+      
+   }   setLoader(false);
 }
